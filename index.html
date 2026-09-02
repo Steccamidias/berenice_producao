@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,54 +7,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.31.0/iconfont/tabler-icons.min.css" />
   <style>
     :root {
-      --bg: #f5f5f5;
-      --bg2: #ececec;
-      --surface: #ffffff;
-      --border: #d8d8d8;
-      --border2: #e8e8e8;
-      --text: #1a1a1a;
-      --text2: #666666;
-      --text3: #999999;
-      --info-bg: #e8f0fe;
-      --info-text: #1a56db;
-      --info-border: #a4c0f4;
-      --success-bg: #e6f9f0;
-      --success-text: #0d7a4e;
-      --success-border: #6de2b4;
-      --warning-bg: #fff8e1;
-      --warning-text: #b45309;
-      --warning-border: #fcd34d;
-      --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      --mono: 'Courier New', monospace;
-      --radius: 8px;
-      --radius-lg: 12px;
+      --bg: #f5f5f5; --bg2: #ececec; --surface: #ffffff; --border: #d8d8d8; --border2: #e8e8e8;
+      --text: #1a1a1a; --text2: #666666; --text3: #999999;
+      --info-bg: #e8f0fe; --info-text: #1a56db; --info-border: #a4c0f4;
+      --success-bg: #e6f9f0; --success-text: #0d7a4e; --success-border: #6de2b4;
+      --warning-bg: #fff8e1; --warning-text: #b45309; --warning-border: #fcd34d;
+      --font: 'Segoe UI', system-ui, -apple-system, sans-serif; --mono: 'Courier New', monospace;
+      --radius: 8px; --radius-lg: 12px;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #141414;
-        --bg2: #1e1e1e;
-        --surface: #242424;
-        --border: #333;
-        --border2: #2a2a2a;
-        --text: #f0f0f0;
-        --text2: #aaa;
-        --text3: #666;
-        --info-bg: #1a2a4a;
-        --info-text: #7eb3f7;
-        --info-border: #2d4a7a;
-        --success-bg: #0d2e1e;
-        --success-text: #4ade80;
-        --success-border: #166534;
-        --warning-bg: #2a1f00;
-        --warning-text: #fbbf24;
-        --warning-border: #854d0e;
+        --bg: #141414; --bg2: #1e1e1e; --surface: #242424; --border: #333; --border2: #2a2a2a;
+        --text: #f0f0f0; --text2: #aaa; --text3: #666;
+        --info-bg: #1a2a4a; --info-text: #7eb3f7; --info-border: #2d4a7a;
+        --success-bg: #0d2e1e; --success-text: #4ade80; --success-border: #166534;
+        --warning-bg: #2a1f00; --warning-text: #fbbf24; --warning-border: #854d0e;
       }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
     .app { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1rem; }
     .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 12px; }
-    .brand { display: flex; flex-direction: column; }
     .brand-sub { font-size: 11px; color: var(--text3); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
     .brand-title { font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
     .btn { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 16px; font-size: 13px; cursor: pointer; color: var(--text); display: inline-flex; align-items: center; gap: 6px; font-family: var(--font); transition: background 0.15s; }
@@ -64,14 +36,11 @@
     .btn-primary:hover { opacity: 0.85; }
     .btn-success { background: var(--success-bg); border-color: var(--success-border); color: var(--success-text); }
     .btn-success:hover { opacity: 0.85; }
-    .btn-danger { background: #fee2e2; border-color: #fca5a5; color: #b91c1c; }
-    .btn-danger:hover { opacity: 0.85; }
     .tabs { display: flex; gap: 4px; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
     .tab { padding: 8px 18px; font-size: 14px; cursor: pointer; border-radius: var(--radius) var(--radius) 0 0; border: 1px solid transparent; border-bottom: none; color: var(--text2); font-family: var(--font); background: none; }
     .tab:hover { background: var(--bg2); }
     .tab.active { border-color: var(--border); background: var(--surface); color: var(--text); font-weight: 500; margin-bottom: -1px; }
-    .view { display: none; }
-    .view.active { display: block; }
+    .view { display: none; } .view.active { display: block; }
     .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
     .metric { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-lg); padding: 1rem; }
     .metric-label { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
@@ -87,6 +56,7 @@
     .card-meta { font-size: 11px; color: var(--text2); display: flex; justify-content: space-between; }
     .card-value { font-size: 11px; color: var(--success-text); font-weight: 500; margin-top: 3px; }
     .card-parcial { font-size: 11px; color: var(--warning-text); margin-top: 3px; }
+    .card-inserted { font-size: 10px; color: var(--text3); margin-top: 2px; font-style: italic; }
     .progress-bar { height: 3px; background: var(--border); border-radius: 4px; margin-top: 6px; }
     .progress-fill { height: 3px; border-radius: 4px; background: #1D9E75; transition: width 0.3s; }
     .empty-col { font-size: 12px; color: var(--text3); text-align: center; padding: 16px 0; }
@@ -106,6 +76,7 @@
     .detail-row span:first-child { color: var(--text2); }
     .etapa-tag { display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 20px; background: var(--info-bg); color: var(--info-text); border: 1px solid var(--info-border); }
     .parcial-box { background: var(--warning-bg); border: 1px solid var(--warning-border); border-radius: var(--radius); padding: 10px 12px; margin-bottom: 10px; font-size: 13px; color: var(--warning-text); }
+    .info-box { background: var(--info-bg); border: 1px solid var(--info-border); border-radius: var(--radius); padding: 10px 12px; margin-bottom: 12px; font-size: 13px; color: var(--info-text); }
     .pay-table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .pay-table th { text-align: left; padding: 8px 12px; font-weight: 500; font-size: 12px; color: var(--text2); border-bottom: 1px solid var(--border); }
     .pay-table td { padding: 10px 12px; border-bottom: 1px solid var(--border2); }
@@ -117,22 +88,19 @@
     .mov-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; padding: 6px 0; border-bottom: 1px solid var(--border2); }
     .mov-row:last-child { border-bottom: none; }
     .tag-ok { font-size: 10px; padding: 1px 7px; border-radius: 10px; background: var(--success-bg); color: var(--success-text); border: 1px solid var(--success-border); }
-    .alert { padding: 10px 14px; border-radius: var(--radius); font-size: 13px; margin-bottom: 12px; }
-    .alert-error { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
-    @media (max-width: 900px) {
-      .kanban { grid-template-columns: repeat(4, minmax(130px, 1fr)); }
-    }
-    @media (max-width: 600px) {
-      .kanban { grid-template-columns: repeat(2, minmax(130px, 1fr)); }
-      .form-row { grid-template-columns: 1fr; }
-    }
+    .etapa-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px; }
+    .etapa-btn { padding: 7px 4px; font-size: 11px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg2); color: var(--text2); cursor: pointer; text-align: center; font-family: var(--font); transition: all 0.15s; }
+    .etapa-btn:hover { border-color: var(--info-border); color: var(--info-text); }
+    .etapa-btn.selected { background: var(--info-bg); border-color: var(--info-border); color: var(--info-text); font-weight: 600; }
+    @media (max-width: 900px) { .kanban { grid-template-columns: repeat(4, minmax(130px, 1fr)); } }
+    @media (max-width: 600px) { .kanban { grid-template-columns: repeat(2, minmax(130px, 1fr)); } .form-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 <div class="app">
   <div class="topbar">
-    <div class="brand">
-      <span class="brand-sub">Controle de Produção</span>
+    <div>
+      <div class="brand-sub">Controle de Produção</div>
       <h1 class="brand-title"><i class="ti ti-shoe"></i> Berenice Shoes</h1>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -140,18 +108,15 @@
       <button class="btn btn-primary" onclick="openModal('config')"><i class="ti ti-settings"></i> Preços / Setor</button>
     </div>
   </div>
-
   <div class="tabs">
     <button class="tab active" onclick="switchTab('kanban',this)"><i class="ti ti-layout-kanban"></i> Kanban</button>
     <button class="tab" onclick="switchTab('pagamentos',this)"><i class="ti ti-currency-dollar"></i> Pagamentos</button>
     <button class="tab" onclick="switchTab('historico',this)"><i class="ti ti-history"></i> Histórico</button>
   </div>
-
   <div id="view-kanban" class="view active">
     <div class="metrics" id="metricsBar"></div>
     <div class="kanban" id="kanbanBoard"></div>
   </div>
-
   <div id="view-pagamentos" class="view">
     <div class="month-select">
       <label style="font-size:13px;color:var(--text2)">Mês de referência:</label>
@@ -159,13 +124,11 @@
     </div>
     <div id="payContent"></div>
   </div>
-
   <div id="view-historico" class="view">
     <div id="histContent"></div>
   </div>
 </div>
 
-<!-- Modal -->
 <div id="overlayWrap" style="display:none" onclick="closeModalOutside(event)">
   <div class="overlay">
     <div class="modal" id="modalContent" onclick="event.stopPropagation()"></div>
@@ -173,154 +136,144 @@
 </div>
 
 <script>
-const STORAGE_KEY = 'berenice_v2';
+const STORAGE_KEY = 'berenice_v3';
 const ETAPAS = ['Compras','Corte','Enfachetamento Palmilha','Enfachetamento Salto','Pesponto','Montagem','Estoque'];
 const ETAPAS_PAGO = ['Corte','Enfachetamento Palmilha','Enfachetamento Salto','Pesponto','Montagem'];
-const MATERIAIS = ['Cabedais','Forro','Fivela','Construção','Caixa'];
 const PRECOS_DEFAULT = {'Corte':1.90,'Enfachetamento Palmilha':1.00,'Enfachetamento Salto':1.30,'Pesponto':5.50,'Montagem':8.50};
 
 let state = loadState();
+let etapaSelecionada = 'Compras';
 
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch(e) {}
-  return { lotes: [], precos: {...PRECOS_DEFAULT}, nextId: 1 };
+function loadState(){
+  try{
+    const raw=localStorage.getItem(STORAGE_KEY);
+    if(raw) return JSON.parse(raw);
+    const old=localStorage.getItem('berenice_v2');
+    if(old){ const s=JSON.parse(old); s.lotes.forEach(l=>{ if(!l.etapaInicial) l.etapaInicial=l.etapaAtual; }); return s; }
+  }catch(e){}
+  return {lotes:[],precos:{...PRECOS_DEFAULT},nextId:1};
 }
 
-function gerarCodigo(data) {
-  const d = data ? new Date(data + 'T12:00:00') : new Date();
-  const aa = String(d.getFullYear()).substring(2);
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  return `BERE-${aa}${mm}-${String(state.nextId).padStart(3, '0')}`;
+function gerarCodigo(data){
+  const d=data?new Date(data+'T12:00:00'):new Date();
+  const aa=String(d.getFullYear()).substring(2);
+  const mm=String(d.getMonth()+1).padStart(2,'0');
+  return `BERE-${aa}${mm}-${String(state.nextId).padStart(3,'0')}`;
 }
 
-function save() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+function save(){ try{ localStorage.setItem(STORAGE_KEY,JSON.stringify(state)); }catch(e){} }
+function renderAll(){ renderMetrics(); renderKanban(); renderMesOptions(); renderPagamentos(); renderHistorico(); }
+function etapaIndex(e){ return ETAPAS.indexOf(e); }
+
+function paresPendentesEstoque(lote){
+  if(lote.etapaAtual!=='Montagem'&&lote.etapaAtual!=='Estoque') return 0;
+  const entregues=(lote.movimentos||[]).filter(m=>m.etapa==='Estoque').reduce((a,m)=>a+(m.paresEntregues||0),0);
+  return (lote.paresMontagem||0)-entregues;
 }
 
-function renderAll() {
-  renderMetrics();
-  renderKanban();
-  renderMesOptions();
-  renderPagamentos();
-  renderHistorico();
+function totalEstoque(){
+  return state.lotes.reduce((a,l)=>{
+    return a+(l.movimentos||[]).filter(m=>m.etapa==='Estoque').reduce((s,m)=>s+(m.paresEntregues||0),0);
+  },0);
 }
 
-function etapaIndex(e) { return ETAPAS.indexOf(e); }
-
-function paresPendentesEstoque(lote) {
-  if (lote.etapaAtual !== 'Montagem' && lote.etapaAtual !== 'Estoque') return 0;
-  const entregues = (lote.movimentos || []).filter(m => m.etapa === 'Estoque').reduce((a, m) => a + (m.paresEntregues || 0), 0);
-  return (lote.paresMontagem || 0) - entregues;
-}
-
-function totalEstoque() {
-  return state.lotes.reduce((a, l) => {
-    const ent = (l.movimentos || []).filter(m => m.etapa === 'Estoque').reduce((s, m) => s + (m.paresEntregues || 0), 0);
-    return a + ent;
-  }, 0);
-}
-
-function calcMO(l) {
-  let t = 0;
-  (l.movimentos || []).forEach(m => {
-    if (ETAPAS_PAGO.includes(m.etapa)) t += (m.paresEntregues || 0) * (state.precos[m.etapa] || 0);
-  });
+function calcMO(l){
+  let t=0;
+  (l.movimentos||[]).forEach(m=>{ if(ETAPAS_PAGO.includes(m.etapa)) t+=(m.paresEntregues||0)*(state.precos[m.etapa]||0); });
   return t;
 }
 
-function renderMetrics() {
-  const ativos = state.lotes.filter(l => l.etapaAtual !== 'Entregue');
-  const emProd = state.lotes.filter(l => l.etapaAtual !== 'Estoque' && l.etapaAtual !== 'Entregue');
-  const totalPares = emProd.reduce((a, l) => a + l.pares, 0);
-  const totalValor = ativos.reduce((a, l) => a + (l.custoMP || 0), 0);
-  const estoque = totalEstoque();
-  document.getElementById('metricsBar').innerHTML = `
+function renderMetrics(){
+  const ativos=state.lotes.filter(l=>l.etapaAtual!=='Entregue');
+  const emProd=state.lotes.filter(l=>l.etapaAtual!=='Estoque'&&l.etapaAtual!=='Entregue');
+  const totalPares=emProd.reduce((a,l)=>a+l.pares,0);
+  const totalValor=ativos.reduce((a,l)=>a+(l.custoMP||0),0);
+  const estoque=totalEstoque();
+  document.getElementById('metricsBar').innerHTML=`
     <div class="metric"><div class="metric-label">Lotes em andamento</div><div class="metric-value">${ativos.length}</div></div>
     <div class="metric"><div class="metric-label">Pares em produção</div><div class="metric-value">${totalPares.toLocaleString('pt-BR')}</div></div>
     <div class="metric"><div class="metric-label">Pares em estoque</div><div class="metric-value" style="color:var(--success-text)">${estoque.toLocaleString('pt-BR')}</div></div>
-    <div class="metric"><div class="metric-label">Valor em produção</div><div class="metric-value" style="font-size:16px">R$ ${totalValor.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div></div>`;
+    <div class="metric"><div class="metric-label">Valor em produção</div><div class="metric-value" style="font-size:15px">R$ ${totalValor.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div></div>`;
 }
 
-function renderKanban() {
-  const board = document.getElementById('kanbanBoard');
-  board.innerHTML = '';
-  ETAPAS.forEach(etapa => {
-    const lotes = state.lotes.filter(l => l.etapaAtual === etapa);
-    const col = document.createElement('div');
-    col.className = 'col';
-    col.innerHTML = `<div class="col-header"><span>${etapa}</span><span class="badge">${lotes.length}</span></div>`;
-    if (!lotes.length) { col.innerHTML += `<div class="empty-col">Nenhum lote</div>`; }
-    lotes.forEach(lote => {
-      const pct = etapaIndex(lote.etapaAtual) / (ETAPAS.length - 1) * 100;
-      const pendentes = paresPendentesEstoque(lote);
-      const card = document.createElement('div');
-      card.className = 'card';
-      let extra = '';
-      if (etapa === 'Montagem' && pendentes > 0) {
-        const entregues = (lote.paresMontagem || 0) - pendentes;
-        extra = `<div class="card-parcial"><i class="ti ti-clock" style="font-size:11px"></i> ${entregues}/${lote.paresMontagem} ao estoque</div>`;
+function renderKanban(){
+  const board=document.getElementById('kanbanBoard');
+  board.innerHTML='';
+  ETAPAS.forEach(etapa=>{
+    const lotes=state.lotes.filter(l=>l.etapaAtual===etapa);
+    const col=document.createElement('div');
+    col.className='col';
+    col.innerHTML=`<div class="col-header"><span>${etapa}</span><span class="badge">${lotes.length}</span></div>`;
+    if(!lotes.length){ col.innerHTML+=`<div class="empty-col">Nenhum lote</div>`; }
+    lotes.forEach(lote=>{
+      const pct=etapaIndex(lote.etapaAtual)/(ETAPAS.length-1)*100;
+      const pendentes=paresPendentesEstoque(lote);
+      const foiInserido=lote.etapaInicial&&lote.etapaInicial!=='Compras';
+      const card=document.createElement('div');
+      card.className='card';
+      let extra='';
+      if(etapa==='Montagem'&&pendentes>0){
+        const ent=(lote.paresMontagem||0)-pendentes;
+        extra=`<div class="card-parcial"><i class="ti ti-clock" style="font-size:11px"></i> ${ent}/${lote.paresMontagem} ao estoque</div>`;
       }
-      if (etapa === 'Estoque') {
-        const ent = (lote.movimentos || []).filter(m => m.etapa === 'Estoque').reduce((a, m) => a + (m.paresEntregues || 0), 0);
-        extra = `<div class="card-value"><i class="ti ti-box" style="font-size:11px"></i> ${ent} pares</div>`;
+      if(etapa==='Estoque'){
+        const ent=(lote.movimentos||[]).filter(m=>m.etapa==='Estoque').reduce((a,m)=>a+(m.paresEntregues||0),0);
+        extra=`<div class="card-value"><i class="ti ti-box" style="font-size:11px"></i> ${ent} pares</div>`;
       }
-      card.innerHTML = `
+      card.innerHTML=`
         <div class="card-lote">${lote.codigo}</div>
-        <div class="card-title">${lote.referencia || 'Sem referência'}</div>
-        <div class="card-meta"><span><i class="ti ti-shoe" style="font-size:11px"></i> ${lote.pares} pares</span><span>${lote.dataInicio || ''}</span></div>
-        ${lote.custoMP ? `<div class="card-value">R$ ${Number(lote.custoMP).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>` : ''}
+        <div class="card-title">${lote.referencia||'Sem referência'}</div>
+        <div class="card-meta"><span><i class="ti ti-shoe" style="font-size:11px"></i> ${lote.pares} pares</span><span>${lote.dataInicio||''}</span></div>
+        ${lote.custoMP?`<div class="card-value">R$ ${Number(lote.custoMP).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>`:''}
         ${extra}
+        ${foiInserido?`<div class="card-inserted">↪ inserido em ${lote.etapaInicial}</div>`:''}
         <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>`;
-      card.onclick = () => openModalLote(lote.id);
+      card.onclick=()=>openModalLote(lote.id);
       col.appendChild(card);
     });
     board.appendChild(col);
   });
 }
 
-function renderMesOptions() {
-  const sel = document.getElementById('mesRef');
-  const meses = new Set();
-  const now = new Date();
-  for (let i = 0; i < 6; i++) {
-    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+function renderMesOptions(){
+  const sel=document.getElementById('mesRef');
+  const meses=new Set();
+  const now=new Date();
+  for(let i=0;i<6;i++){
+    const d=new Date(now.getFullYear(),now.getMonth()-i,1);
     meses.add(`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`);
   }
-  state.lotes.forEach(l => (l.movimentos || []).forEach(m => { if (m.data) meses.add(m.data.substring(0,7)); }));
-  const arr = [...meses].sort().reverse();
-  const cur = sel.value || arr[0];
-  sel.innerHTML = arr.map(m => `<option value="${m}" ${m===cur?'selected':''}>${mesLabel(m)}</option>`).join('');
+  state.lotes.forEach(l=>(l.movimentos||[]).forEach(m=>{ if(m.data) meses.add(m.data.substring(0,7)); }));
+  const arr=[...meses].sort().reverse();
+  const cur=sel.value||arr[0];
+  sel.innerHTML=arr.map(m=>`<option value="${m}" ${m===cur?'selected':''}>${mesLabel(m)}</option>`).join('');
 }
 
-function mesLabel(ym) {
-  const [y, m] = ym.split('-');
-  const n = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+function mesLabel(ym){
+  const [y,m]=ym.split('-');
+  const n=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
   return `${n[parseInt(m)-1]} ${y}`;
 }
 
-function renderPagamentos() {
-  const mes = document.getElementById('mesRef').value;
-  if (!mes) return;
-  const totais = {};
-  ETAPAS_PAGO.forEach(e => totais[e] = {pares:0, valor:0});
-  state.lotes.forEach(l => {
-    (l.movimentos || []).forEach(m => {
-      if (m.data && m.data.substring(0,7) === mes && ETAPAS_PAGO.includes(m.etapa)) {
-        totais[m.etapa].pares += m.paresEntregues || 0;
-        totais[m.etapa].valor += (m.paresEntregues || 0) * (state.precos[m.etapa] || 0);
+function renderPagamentos(){
+  const mes=document.getElementById('mesRef').value;
+  if(!mes) return;
+  const totais={};
+  ETAPAS_PAGO.forEach(e=>totais[e]={pares:0,valor:0});
+  state.lotes.forEach(l=>{
+    (l.movimentos||[]).forEach(m=>{
+      if(m.data&&m.data.substring(0,7)===mes&&ETAPAS_PAGO.includes(m.etapa)){
+        totais[m.etapa].pares+=m.paresEntregues||0;
+        totais[m.etapa].valor+=(m.paresEntregues||0)*(state.precos[m.etapa]||0);
       }
     });
   });
-  const total = Object.values(totais).reduce((a, t) => a + t.valor, 0);
-  document.getElementById('payContent').innerHTML = `
+  const total=Object.values(totais).reduce((a,t)=>a+t.valor,0);
+  document.getElementById('payContent').innerHTML=`
     <table class="pay-table">
       <thead><tr><th>Setor</th><th>Pares produzidos</th><th>Preço / par</th><th>Total a pagar</th></tr></thead>
-      <tbody>${ETAPAS_PAGO.map(e => `<tr>
-        <td>${e}</td>
-        <td>${totais[e].pares.toLocaleString('pt-BR')}</td>
+      <tbody>${ETAPAS_PAGO.map(e=>`<tr>
+        <td>${e}</td><td>${totais[e].pares.toLocaleString('pt-BR')}</td>
         <td>R$ ${(state.precos[e]||0).toFixed(2)}</td>
         <td style="font-weight:600">R$ ${totais[e].valor.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
       </tr>`).join('')}</tbody>
@@ -328,21 +281,20 @@ function renderPagamentos() {
     <div class="pay-total">Total do mês: R$ ${total.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>`;
 }
 
-function renderHistorico() {
-  const done = state.lotes.filter(l => l.etapaAtual === 'Entregue');
-  if (!done.length) {
-    document.getElementById('histContent').innerHTML = '<p style="color:var(--text2);font-size:14px;padding:2rem 0">Nenhum lote finalizado ainda.</p>';
+function renderHistorico(){
+  const done=state.lotes.filter(l=>l.etapaAtual==='Entregue');
+  if(!done.length){
+    document.getElementById('histContent').innerHTML='<p style="color:var(--text2);font-size:14px;padding:2rem 0">Nenhum lote finalizado ainda.</p>';
     return;
   }
-  document.getElementById('histContent').innerHTML = `
+  document.getElementById('histContent').innerHTML=`
     <table class="pay-table">
-      <thead><tr><th>Código</th><th>Referência</th><th>Pares</th><th>Custo MP</th><th>MO Total</th><th>Custo / par</th></tr></thead>
-      <tbody>${done.map(l => {
-        const mo = calcMO(l); const total = (l.custoMP||0) + mo; const cpp = l.pares ? total/l.pares : 0;
+      <thead><tr><th>Código</th><th>Referência</th><th>Pares</th><th>Custo MP</th><th>MO Total</th><th>Custo/par</th></tr></thead>
+      <tbody>${done.map(l=>{
+        const mo=calcMO(l); const total=(l.custoMP||0)+mo; const cpp=l.pares?total/l.pares:0;
         return `<tr>
           <td style="font-family:var(--mono);font-size:12px">${l.codigo}</td>
-          <td>${l.referencia||'—'}</td>
-          <td>${l.pares}</td>
+          <td>${l.referencia||'—'}</td><td>${l.pares}</td>
           <td>R$ ${(l.custoMP||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
           <td>R$ ${mo.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
           <td style="font-weight:600">R$ ${cpp.toFixed(2)}</td>
@@ -351,34 +303,50 @@ function renderHistorico() {
     </table>`;
 }
 
-function openModal(type) {
-  document.getElementById('overlayWrap').style.display = 'block';
-  const m = document.getElementById('modalContent');
-  if (type === 'novoLote') {
-    const hoje = new Date().toISOString().substring(0,10);
-    m.innerHTML = `
+function selecionarEtapa(etapa){
+  etapaSelecionada=etapa;
+  document.querySelectorAll('.etapa-btn').forEach(b=>b.classList.toggle('selected',b.dataset.etapa===etapa));
+  const campoMontagem=document.getElementById('campo-montagem');
+  if(campoMontagem) campoMontagem.style.display=etapa==='Montagem'?'block':'none';
+  const labelCusto=document.getElementById('label-custo');
+  if(labelCusto) labelCusto.textContent=etapa==='Compras'?'Custo total de Matéria-Prima R$':`Custo total de MP já gasto até ${etapa} R$`;
+}
+
+function openModal(type){
+  document.getElementById('overlayWrap').style.display='block';
+  const m=document.getElementById('modalContent');
+  etapaSelecionada='Compras';
+  if(type==='novoLote'){
+    const hoje=new Date().toISOString().substring(0,10);
+    m.innerHTML=`
       <h2><i class="ti ti-plus"></i> Novo Lote</h2>
       <div class="code-preview" id="codePreview">${gerarCodigo(hoje)}</div>
       <div class="form-group"><label>Referência / Modelo</label><input id="f_ref" placeholder="Ex: Scarpin Verniz Preto" /></div>
       <div class="form-row">
         <div class="form-group"><label>Quantidade de pares</label><input id="f_pares" type="number" placeholder="0" min="1" /></div>
-        <div class="form-group"><label>Data de abertura</label><input id="f_data" type="date" value="${hoje}" oninput="atualizarCodigo(this.value)" /></div>
+        <div class="form-group"><label>Data de entrada</label><input id="f_data" type="date" value="${hoje}" oninput="atualizarCodigo(this.value)" /></div>
       </div>
-      <div class="section-title">Compras — Matéria-Prima</div>
-      ${MATERIAIS.map(mat => `
-        <div class="form-row">
-          <div class="form-group"><label>${mat} — Qtd</label><input id="fq_${mat}" type="number" placeholder="0" /></div>
-          <div class="form-group"><label>${mat} — Valor R$</label><input id="fv_${mat}" type="number" step="0.01" placeholder="0,00" /></div>
-        </div>`).join('')}
+      <div class="section-title">Em qual etapa este lote já está?</div>
+      <div class="info-box">Selecione onde o lote se encontra agora. Você pode inserir direto na Montagem, Pesponto ou qualquer outra etapa.</div>
+      <div class="etapa-selector">
+        ${ETAPAS.filter(e=>e!=='Estoque').map(e=>`<button class="etapa-btn${e==='Compras'?' selected':''}" data-etapa="${e}" onclick="selecionarEtapa('${e}')">${e}</button>`).join('')}
+      </div>
+      <div class="form-group">
+        <label id="label-custo">Custo total de Matéria-Prima R$</label>
+        <input id="f_custoMP" type="number" step="0.01" placeholder="0,00" />
+      </div>
+      <div id="campo-montagem" style="display:none">
+        <div class="info-box">Lote inserido na Montagem: as entregas ao estoque serão feitas parceladamente.</div>
+      </div>
       <div class="modal-footer">
         <button class="btn" onclick="closeModal()">Cancelar</button>
         <button class="btn btn-primary" onclick="criarLote()"><i class="ti ti-check"></i> Criar Lote</button>
       </div>`;
-  } else if (type === 'config') {
-    m.innerHTML = `
+  } else if(type==='config'){
+    m.innerHTML=`
       <h2><i class="ti ti-settings"></i> Preço por par — Setores</h2>
-      <p style="font-size:13px;color:var(--text2);margin-bottom:1rem">Defina o valor pago por par produzido em cada setor.</p>
-      ${ETAPAS_PAGO.map(e => `
+      <p style="font-size:13px;color:var(--text2);margin-bottom:1rem">Valor pago por par produzido em cada setor.</p>
+      ${ETAPAS_PAGO.map(e=>`
         <div class="form-group"><label>${e} — R$ por par</label>
         <input id="pc_${e.replace(/ /g,'_')}" type="number" step="0.01" value="${(state.precos[e]||0).toFixed(2)}" /></div>`).join('')}
       <div class="modal-footer">
@@ -388,33 +356,32 @@ function openModal(type) {
   }
 }
 
-function openModalLote(id) {
-  const lote = state.lotes.find(l => l.id === id);
-  if (!lote) return;
-  document.getElementById('overlayWrap').style.display = 'block';
-  const m = document.getElementById('modalContent');
-  const etIdx = etapaIndex(lote.etapaAtual);
-  const mo = calcMO(lote);
-  const total = (lote.custoMP || 0) + mo;
-  const isMontagem = lote.etapaAtual === 'Montagem';
-  const isEstoque = lote.etapaAtual === 'Estoque';
-  const pendentes = paresPendentesEstoque(lote);
-  const proxEtapa = etIdx < ETAPAS.length - 1 ? ETAPAS[etIdx + 1] : null;
-  const entreguesEstoque = (lote.movimentos || []).filter(mv => mv.etapa === 'Estoque').reduce((a, mv) => a + (mv.paresEntregues || 0), 0);
+function openModalLote(id){
+  const lote=state.lotes.find(l=>l.id===id);
+  if(!lote) return;
+  document.getElementById('overlayWrap').style.display='block';
+  const m=document.getElementById('modalContent');
+  const etIdx=etapaIndex(lote.etapaAtual);
+  const mo=calcMO(lote);
+  const total=(lote.custoMP||0)+mo;
+  const isMontagem=lote.etapaAtual==='Montagem';
+  const isEstoque=lote.etapaAtual==='Estoque';
+  const pendentes=paresPendentesEstoque(lote);
+  const proxEtapa=etIdx<ETAPAS.length-1?ETAPAS[etIdx+1]:null;
+  const entreguesEstoque=(lote.movimentos||[]).filter(mv=>mv.etapa==='Estoque').reduce((a,mv)=>a+(mv.paresEntregues||0),0);
+  const foiInserido=lote.etapaInicial&&lote.etapaInicial!=='Compras';
 
-  let acaoHTML = '';
-  if (isMontagem) {
-    acaoHTML = `
+  let acaoHTML='';
+  if(isMontagem){
+    acaoHTML=`
       <div class="section-title">Entregar pares ao Estoque</div>
-      <div class="parcial-box">
-        <i class="ti ti-package"></i> <strong>${entreguesEstoque}</strong> de <strong>${lote.paresMontagem}</strong> pares já entregues. Pendentes: <strong>${pendentes}</strong>.
-      </div>
+      <div class="parcial-box"><i class="ti ti-package"></i> <strong>${entreguesEstoque}</strong> de <strong>${lote.paresMontagem}</strong> pares entregues. Pendentes: <strong>${pendentes}</strong>.</div>
       <div class="form-row">
-        <div class="form-group"><label>Pares a entregar agora</label><input id="av_pares" type="number" placeholder="Ex: 50" /></div>
+        <div class="form-group"><label>Pares a entregar agora</label><input id="av_pares" type="number" placeholder="Ex: 100" /></div>
         <div class="form-group"><label>Data</label><input id="av_data" type="date" value="${new Date().toISOString().substring(0,10)}" /></div>
       </div>`;
-  } else if (!isEstoque && proxEtapa) {
-    acaoHTML = `
+  } else if(!isEstoque&&proxEtapa){
+    acaoHTML=`
       <div class="section-title">Avançar para: ${proxEtapa}</div>
       <div class="form-row">
         <div class="form-group"><label>Pares entregues</label><input id="av_pares" type="number" value="${lote.pares}" /></div>
@@ -422,122 +389,100 @@ function openModalLote(id) {
       </div>`;
   }
 
-  let btnAcao = '';
-  if (isMontagem && pendentes > 0) {
-    btnAcao = `<button class="btn btn-success" onclick="entregarEstoque(${id})"><i class="ti ti-box"></i> Entregar ao Estoque</button>`;
-  } else if (!isEstoque && proxEtapa && !isMontagem) {
-    btnAcao = `<button class="btn btn-primary" onclick="avancarLote(${id})">Avançar → ${proxEtapa}</button>`;
-  }
+  let btnAcao='';
+  if(isMontagem&&pendentes>0) btnAcao=`<button class="btn btn-success" onclick="entregarEstoque(${id})"><i class="ti ti-box"></i> Entregar ao Estoque</button>`;
+  else if(!isEstoque&&proxEtapa&&!isMontagem) btnAcao=`<button class="btn btn-primary" onclick="avancarLote(${id})">Avançar → ${proxEtapa}</button>`;
 
-  const movRows = (lote.movimentos || []).map(mv => `
+  const movRows=(lote.movimentos||[]).map(mv=>`
     <div class="mov-row">
       <span style="color:var(--text2)">${mv.de} → ${mv.etapa}</span>
-      <span style="display:flex;align-items:center;gap:6px">
+      <span style="display:flex;align-items:center;gap:5px">
         <span>${mv.paresEntregues} pares</span>
         <span class="tag-ok">✓</span>
-        <span style="color:var(--text3);font-size:11px">${mv.data || ''}</span>
+        <span style="color:var(--text3);font-size:11px">${mv.data||''}</span>
       </span>
     </div>`).join('');
 
-  m.innerHTML = `
+  m.innerHTML=`
     <h2 style="font-family:var(--mono)">${lote.codigo}</h2>
-    <div style="font-size:14px;color:var(--text2);margin-bottom:1rem">${lote.referencia || 'Sem referência'}</div>
+    <div style="font-size:14px;color:var(--text2);margin-bottom:1rem">${lote.referencia||'Sem referência'}</div>
+    ${foiInserido?`<div class="info-box" style="margin-bottom:1rem">↪ Lote inserido diretamente em <strong>${lote.etapaInicial}</strong></div>`:''}
     <div style="margin-bottom:1rem">
       <div class="detail-row"><span>Etapa atual</span><span class="etapa-tag">${lote.etapaAtual}</span></div>
       <div class="detail-row"><span>Pares no lote</span><span>${lote.pares}</span></div>
-      ${(isMontagem || isEstoque) ? `<div class="detail-row"><span>Pares entregues ao estoque</span><span style="color:var(--success-text);font-weight:600">${entreguesEstoque}</span></div>` : ''}
-      ${isMontagem && pendentes > 0 ? `<div class="detail-row"><span>Pendentes na Montagem</span><span style="color:var(--warning-text)">${pendentes}</span></div>` : ''}
+      ${(isMontagem||isEstoque)?`<div class="detail-row"><span>Entregues ao estoque</span><span style="color:var(--success-text);font-weight:600">${entreguesEstoque}</span></div>`:''}
+      ${isMontagem&&pendentes>0?`<div class="detail-row"><span>Pendentes na Montagem</span><span style="color:var(--warning-text)">${pendentes}</span></div>`:''}
       <div class="detail-row"><span>Custo matéria-prima</span><span>R$ ${(lote.custoMP||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</span></div>
       <div class="detail-row"><span>Mão de obra acumulada</span><span>R$ ${mo.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</span></div>
       <div class="detail-row"><span>Custo total acumulado</span><span style="font-weight:600">R$ ${total.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</span></div>
-      ${lote.pares ? `<div class="detail-row"><span>Custo por par</span><span style="font-weight:600">R$ ${(total/lote.pares).toFixed(2)}</span></div>` : ''}
+      ${lote.pares?`<div class="detail-row"><span>Custo por par</span><span style="font-weight:600">R$ ${(total/lote.pares).toFixed(2)}</span></div>`:''}
     </div>
     ${acaoHTML}
     <div class="section-title">Histórico de movimentos</div>
-    ${!movRows ? '<p style="font-size:13px;color:var(--text2);padding:8px 0">Nenhum movimento ainda.</p>' : movRows}
+    ${!movRows?'<p style="font-size:13px;color:var(--text2);padding:6px 0">Nenhum movimento ainda.</p>':movRows}
     <div class="modal-footer">
       <button class="btn" onclick="closeModal()">Fechar</button>
       ${btnAcao}
     </div>`;
 }
 
-function atualizarCodigo(data) {
-  const el = document.getElementById('codePreview');
-  if (el) el.textContent = gerarCodigo(data);
-}
+function atualizarCodigo(data){ const el=document.getElementById('codePreview'); if(el) el.textContent=gerarCodigo(data); }
 
-function criarLote() {
-  const data = document.getElementById('f_data').value;
-  const ref = document.getElementById('f_ref').value.trim();
-  const pares = parseInt(document.getElementById('f_pares').value) || 0;
-  if (!ref) { alert('Informe a referência do modelo.'); return; }
-  if (pares <= 0) { alert('Informe a quantidade de pares.'); return; }
-  let custoMP = 0;
-  const compras = {};
-  MATERIAIS.forEach(mat => {
-    const qtd = parseFloat(document.getElementById('fq_' + mat).value) || 0;
-    const val = parseFloat(document.getElementById('fv_' + mat).value) || 0;
-    compras[mat] = { qtd, valor: val };
-    custoMP += val;
+function criarLote(){
+  const data=document.getElementById('f_data').value;
+  const ref=document.getElementById('f_ref').value.trim();
+  const pares=parseInt(document.getElementById('f_pares').value)||0;
+  const custoMP=parseFloat(document.getElementById('f_custoMP').value)||0;
+  if(!ref){ alert('Informe a referência do modelo.'); return; }
+  if(pares<=0){ alert('Informe a quantidade de pares.'); return; }
+  const codigo=gerarCodigo(data);
+  state.lotes.push({
+    id:state.nextId++, codigo, referencia:ref, pares, dataInicio:data,
+    etapaAtual:etapaSelecionada, etapaInicial:etapaSelecionada,
+    custoMP, movimentos:[],
+    paresMontagem:etapaSelecionada==='Montagem'?pares:0
   });
-  const codigo = gerarCodigo(data);
-  state.lotes.push({ id: state.nextId++, codigo, referencia: ref, pares, dataInicio: data, etapaAtual: 'Compras', custoMP, compras, movimentos: [], paresMontagem: 0 });
-  save();
-  closeModal();
-  renderAll();
+  save(); closeModal(); renderAll();
 }
 
-function avancarLote(id) {
-  const lote = state.lotes.find(l => l.id === id);
-  if (!lote) return;
-  const etIdx = etapaIndex(lote.etapaAtual);
-  if (etIdx >= ETAPAS.length - 1) return;
-  const proxEtapa = ETAPAS[etIdx + 1];
-  const paresEnt = parseInt(document.getElementById('av_pares').value) || lote.pares;
-  const data = document.getElementById('av_data').value;
-  lote.movimentos.push({ de: lote.etapaAtual, etapa: proxEtapa, paresEntregues: paresEnt, data });
-  if (proxEtapa === 'Montagem') lote.paresMontagem = paresEnt;
-  lote.etapaAtual = proxEtapa;
-  lote.pares = paresEnt;
-  save();
-  closeModal();
-  renderAll();
+function avancarLote(id){
+  const lote=state.lotes.find(l=>l.id===id);
+  if(!lote) return;
+  const etIdx=etapaIndex(lote.etapaAtual);
+  if(etIdx>=ETAPAS.length-1) return;
+  const proxEtapa=ETAPAS[etIdx+1];
+  const paresEnt=parseInt(document.getElementById('av_pares').value)||lote.pares;
+  const data=document.getElementById('av_data').value;
+  lote.movimentos.push({de:lote.etapaAtual,etapa:proxEtapa,paresEntregues:paresEnt,data});
+  if(proxEtapa==='Montagem') lote.paresMontagem=paresEnt;
+  lote.etapaAtual=proxEtapa; lote.pares=paresEnt;
+  save(); closeModal(); renderAll();
 }
 
-function entregarEstoque(id) {
-  const lote = state.lotes.find(l => l.id === id);
-  if (!lote) return;
-  const paresEnt = parseInt(document.getElementById('av_pares').value) || 0;
-  const data = document.getElementById('av_data').value;
-  const pendentes = paresPendentesEstoque(lote);
-  if (paresEnt <= 0 || paresEnt > pendentes) {
-    alert(`Informe entre 1 e ${pendentes} pares.`);
-    return;
-  }
-  lote.movimentos.push({ de: 'Montagem', etapa: 'Estoque', paresEntregues: paresEnt, data });
-  if (pendentes - paresEnt === 0) lote.etapaAtual = 'Estoque';
-  save();
-  closeModal();
-  renderAll();
+function entregarEstoque(id){
+  const lote=state.lotes.find(l=>l.id===id);
+  if(!lote) return;
+  const paresEnt=parseInt(document.getElementById('av_pares').value)||0;
+  const data=document.getElementById('av_data').value;
+  const pendentes=paresPendentesEstoque(lote);
+  if(paresEnt<=0||paresEnt>pendentes){ alert(`Informe entre 1 e ${pendentes} pares.`); return; }
+  lote.movimentos.push({de:'Montagem',etapa:'Estoque',paresEntregues:paresEnt,data});
+  if(pendentes-paresEnt===0) lote.etapaAtual='Estoque';
+  save(); closeModal(); renderAll();
 }
 
-function salvarPrecos() {
-  ETAPAS_PAGO.forEach(e => {
-    const v = parseFloat(document.getElementById('pc_' + e.replace(/ /g,'_')).value) || 0;
-    state.precos[e] = v;
-  });
-  save();
-  closeModal();
-  renderPagamentos();
+function salvarPrecos(){
+  ETAPAS_PAGO.forEach(e=>{ const v=parseFloat(document.getElementById('pc_'+e.replace(/ /g,'_')).value)||0; state.precos[e]=v; });
+  save(); closeModal(); renderPagamentos();
 }
 
-function closeModal() { document.getElementById('overlayWrap').style.display = 'none'; }
-function closeModalOutside(e) { if (e.target === document.getElementById('overlayWrap').firstElementChild) closeModal(); }
-function switchTab(name, el) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+function closeModal(){ document.getElementById('overlayWrap').style.display='none'; }
+function closeModalOutside(e){ if(e.target===document.getElementById('overlayWrap')) closeModal(); }
+function switchTab(name,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   el.classList.add('active');
-  document.getElementById('view-' + name).classList.add('active');
+  document.getElementById('view-'+name).classList.add('active');
 }
 
 renderAll();
