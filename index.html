@@ -181,36 +181,42 @@ function totalEstoque() {
   }, 0);
 }
 
-function calcMO(l) {
-  let t = 0;
-  (l.movimentos || []).forEach(m => {
-    if (ETAPAS_PAGO.includes(m.etapa)) {
-      t += (m.paresEntregues || 0) * (state.precos[m.etapa] || 0);
-    }
-    if (m.etapa === 'Estoque' && l.etapaInicial === 'Montagem') {
-      t += (m.paresEntregues || 0) * (state.precos['Montagem'] || 0);
-    }
-  });
-  return t;
-}
-
 function calcPagamentosMes(mes) {
   const totais = {};
   ETAPAS_PAGO.forEach(e => totais[e] = { pares: 0, valor: 0 });
   state.lotes.forEach(l => {
     (l.movimentos || []).forEach(m => {
       if (!m.data || m.data.substring(0, 7) !== mes) return;
-      if (ETAPAS_PAGO.includes(m.etapa)) {
-        totais[m.etapa].pares += m.paresEntregues || 0;
-        totais[m.etapa].valor += (m.paresEntregues || 0) * (state.precos[m.etapa] || 0);
-      }
-      if (m.etapa === 'Estoque' && l.etapaInicial === 'Montagem') {
+      // Entrega ao Estoque: paga a Montagem (quem montou entregou ao estoque)
+      if (m.etapa === 'Estoque') {
         totais['Montagem'].pares += m.paresEntregues || 0;
         totais['Montagem'].valor += (m.paresEntregues || 0) * (state.precos['Montagem'] || 0);
+        return;
+      }
+      // Movimentos entre etapas: paga quem ENTREGOU (campo "de")
+      const setorQEntregou = m.de;
+      if (setorQEntregou && ETAPAS_PAGO.includes(setorQEntregou)) {
+        totais[setorQEntregou].pares += m.paresEntregues || 0;
+        totais[setorQEntregou].valor += (m.paresEntregues || 0) * (state.precos[setorQEntregou] || 0);
       }
     });
   });
   return totais;
+}
+
+function calcMO(l) {
+  let t = 0;
+  (l.movimentos || []).forEach(m => {
+    if (m.etapa === 'Estoque') {
+      t += (m.paresEntregues || 0) * (state.precos['Montagem'] || 0);
+      return;
+    }
+    const setorQEntregou = m.de;
+    if (setorQEntregou && ETAPAS_PAGO.includes(setorQEntregou)) {
+      t += (m.paresEntregues || 0) * (state.precos[setorQEntregou] || 0);
+    }
+  });
+  return t;
 }
 
 function renderMetrics() {
@@ -458,15 +464,9 @@ function criarLote() {
   if (pares <= 0) { alert('Informe a quantidade de pares.'); return; }
   const codigo = gerarCodigo(data);
   state.lotes.push({
-    id: state.nextId++,
-    codigo,
-    referencia: ref,
-    pares,
-    dataInicio: data,
-    etapaAtual: etapaSelecionada,
-    etapaInicial: etapaSelecionada,
-    custoMP,
-    movimentos: [],
+    id: state.nextId++, codigo, referencia: ref, pares, dataInicio: data,
+    etapaAtual: etapaSelecionada, etapaInicial: etapaSelecionada,
+    custoMP, movimentos: [],
     paresMontagem: etapaSelecionada === 'Montagem' ? pares : 0
   });
   save(); closeModal(); renderAll();
@@ -482,8 +482,7 @@ function avancarLote(id) {
   const data = document.getElementById('av_data').value;
   lote.movimentos.push({ de: lote.etapaAtual, etapa: proxEtapa, paresEntregues: paresEnt, data });
   if (proxEtapa === 'Montagem') lote.paresMontagem = paresEnt;
-  lote.etapaAtual = proxEtapa;
-  lote.pares = paresEnt;
+  lote.etapaAtual = proxEtapa; lote.pares = paresEnt;
   save(); closeModal(); renderAll();
 }
 
